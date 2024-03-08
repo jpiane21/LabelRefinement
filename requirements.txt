@@ -1,0 +1,18 @@
+-r requirements/build.txt
+-r requirements/optional.txt
+-r requirements/runtime.txt
+-r requirements/tests.txt
+numpy
+opencv-python
+xtcocotools
+json_tricks
+munkres
+terminaltables
+lab
+pycocotools
+motmetrics
+seaborn
+mmcls
+lap
+json_tricks
+einops
