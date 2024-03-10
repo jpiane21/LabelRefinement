@@ -2,7 +2,7 @@
 The goal of this project to refine labels for temporal localization datasets.  The dataset that is currently support is ShakeFive2
 
 ## Components
-This project was built using OpenMMLab https://openmmlab.com/.  It includes redristributed files from those libaries which are allowed under https://github.com/openmm/openmm/blob/master/libraries/sfmt/LICENSE.txt, provided the following copyright is included:
+This project depends on OpenMMLab https://openmmlab.com/.  It includes redristributed files from those libaries which are allowed under https://github.com/openmm/openmm/blob/master/libraries/sfmt/LICENSE.txt, provided the following copyright is included:
 Copyright (c) 2006,2007 Mutsuo Saito, Makoto Matsumoto and Hiroshima University. All rights reserved.
 
 - File downloader: download.py
@@ -14,11 +14,6 @@ Copyright (c) 2006,2007 Mutsuo Saito, Makoto Matsumoto and Hiroshima University.
 ## How to run
 This project depends on PyTorch and Torch Vision, which are not installed automatically.  
 
-
-### Checkout the project
-To checkout the project, use the following command:
-git clone https://
-
 ### Download the checkpoint files
 The checkpoint files were too large to include in the repository
 From the within the project director, run
@@ -27,6 +22,7 @@ python download.py
 ```
 
 ### Download the ShakeFive2 dataset
+The ShakeFive2 dataset cannot be redistributed and has be downloaded separately.
 Download the ShakeFive2 dataset from https://www.projects.science.uu.nl/shakefive/
 
 ### Run Signal Generation
