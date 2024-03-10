@@ -10,13 +10,14 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torchvision.transforms as transforms
 from copy import deepcopy
+from argparse import ArgumentParser
 
 class ModelTraining():
-    def __init__(self):
-        self.Autorev = False
+    def __init__(self, refined, train):
+        self.Autorev = refined
         self.Flow = True
         self.Sig = True
-        self.do_train = True
+        self.do_train = train
 
         self.training_vids = []
         self.testing_vids = []
@@ -571,9 +572,15 @@ class ModelTraining():
         self.write_mat(mat, ',tIoU,Stand,Approach,Handshake,Hug,High Five,Fist Bump, Leave\n')
         return mat
 
-def main():
-    mt = ModelTraining()
+def main(refined):
+    mt = ModelTraining(refined)
     mt.run()
 
 if __name__ == '__main__':
-    main()
+
+    parser = ArgumentParser()
+    parser.add_argument("--refined", type=str, default="True")
+    parser.add_argument("--train", type=str, default="True")
+    args = parser.parse_args()
+
+    main(args.refined)

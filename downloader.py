@@ -1,33 +1,25 @@
 import os
 import gdown
-import zipfile
+import shutil
 
+mmdet_name = 'faster_rcnn_r50_fpn_16x4_1x_obj365v2_20221220_175040-5910b015.pth'
+mmflow_name = 'flownet2css-sd_8x1_sfine_flyingthings3d_subset_chairssdhom_384x448.pth'
+mmtrack_name = 'faster-rcnn_r50_fpn_4e_mot17-half-64ee2ed4.pth'
+mmpose_name = 'hrnet_w48_coco_256x192-b9e0b3ab_20200708.pth'
 
 PATH_download = "./download"
+print ('Make directory download')
 os.makedirs(PATH_download)
-print ('make directory download')
 
+url_mmdet = 'https://download.openmmlab.com/mmdetection/v2.0/objects365/faster_rcnn_r50_fpn_16x4_1x_obj365v2/' + mmdet_name
+url_mmflow = 'https://download.openmmlab.com/mmflow/flownet2/' + mmflow_name
+url_mmtrack = 'https://download.openmmlab.com/mmtracking/mot/faster_rcnn/' + mmtrack_name
+url_mmpose = 'https://download.openmmlab.com/mmpose/top_down/hrnet/' + mmpose_name
 
-root_folder = "./"
-
-url_mmflow = 'https://drive.google.com/uc?id=1NsjTeNLvcoFU85If6JRykWVxRktwWVlo'
-url_shakefive = 'https://drive.google.com/uc?id=1WK_BuhCfS0oL4I-7nowpD3Yyd2JVcnSj'
-url_ModelSetup = 'https://drive.google.com/uc?id=1mCEQb8Vli10RpCfQVnk7-vq4st4LCgxX'
 
 print ('Downloading files...')
-print ('Downloading mmflow')
-gdown.download(url_mmflow,'./download/mmflow.zip',quiet=False)
-print ('Downloading shakefive')
-gdown.download(url_shakefive,'./download/shakefive.zip',quiet=False)
-print ('Downloading ModelSetup')
-gdown.download(url_ModelSetup,'./download/ModelSetup.zip',quiet=False)
+gdown.download(url_mmflow, './ModelSetup/mmflow/checkpoints/' + mmflow_name, quiet=False)
+gdown.download(url_mmdet, './ModelSetup/mmdetect/checkpoints/' + mmdet_name, quiet=False)
+gdown.download(url_mmtrack, './ModelSetup/mmtrack/checkpoints/' + mmtrack_name, quiet=False)
+gdown.download(url_mmpose, './ModelSetup/mmpose/checkpoints/' + mmpose_name, quiet=False)
 
-print ('Unzipping mmflow')
-with zipfile.ZipFile(PATH_download + '/mmflow.zip', 'r') as ziphandler:
-    ziphandler.extractall(root_folder)
-print ('Unzipping shakefive')
-with zipfile.ZipFile(PATH_download + '/shakefive.zip', 'r') as ziphandler:
-    ziphandler.extractall(root_folder)
-print ('Unzipping ModelSetup')
-with zipfile.ZipFile(PATH_download + '/ModelSetup.zip', 'r') as ziphandler:
-    ziphandler.extractall(root_folder)

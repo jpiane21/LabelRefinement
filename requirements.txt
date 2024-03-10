@@ -1,8 +1,19 @@
--r requirements/build.txt
--r requirements/optional.txt
--r requirements/runtime.txt
--r requirements/tests.txt
 numpy
+scipy
+scikit-learn
+matplotlib
+six
+asynctest
+codecov
+coverage
+flake8
+interrogate
+# Note: used for kwarray.group_items, this may be ported to mmcv in the future.
+kwarray
+pytest
+ubelt
+xdoctest>=0.10.0
+yapf
 opencv-python
 xtcocotools
 json_tricks
@@ -13,6 +24,11 @@ pycocotools
 motmetrics
 seaborn
 mmcls
-lap
-json_tricks
 einops
+xtcocotools
+ArgumentParser
+gdown
+mmcv-full==1.7.2
+mmtrack
+mmflow
+mmpose

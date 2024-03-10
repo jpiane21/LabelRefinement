@@ -10,7 +10,6 @@ sortof_move_threshold = 0.5
 
 def autorevise(video_path):
     vl = VideoLoader(video_path, "cpu")
-
     stand, approach, action, plat, nearest_valley, limits, leave = stand_to_approach(vl)
 
     start, end = get_step_gap(vl.video.tracked_persons.values(), action,
@@ -980,7 +979,7 @@ def stand_to_approach(vl):
 
     stand.end = new_start
     approach.start = new_start + 1
-
+    s = sigs[0]
     plat = LabelRange(stand.label, stand.start, frame_4 + s.start_frame)
     nearest_valley = LabelRange(stand.label, stand.start, frame_1 + s.start_frame)
     limits = LabelRange(stand.label, stand.start, frame_3 + s.start_frame)
